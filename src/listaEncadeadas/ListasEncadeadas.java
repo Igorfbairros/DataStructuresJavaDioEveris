@@ -24,6 +24,28 @@ public class ListasEncadeadas {
 
     }
 
+    private No<T> getNo(int index){
+        if(index >= this.size()){
+
+            throw IndexOutOfBoundsException("NO CONTENT AVAIABLE ON INDEX "+ index + "THIS LIST.");
+
+        }
+
+
+
+        No<T> noAuxiliar = refEntrada;
+        No<T> noRetorno = null;
+
+        for(int i = 0; i < this.size()-1; i++){
+            noRetorno = noAuxiliar;
+            noAuxiliar = noAuxiliar.getProximoNO();
+
+            
+        }
+
+        return noRetorno;
+    }
+
     public int size(){
         int tamanhoLista = 0;
         No<T> refAuxiliar = refEntrada;
