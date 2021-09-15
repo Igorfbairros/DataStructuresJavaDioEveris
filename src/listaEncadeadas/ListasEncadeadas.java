@@ -93,5 +93,25 @@ public class ListasEncadeadas {
     public boolean isEmpty(){
         return refEntrada == null? true: false;
     }
+
+    @Override
+    public String toString() {
+        String strRetorno = "";
+
+        No<T> noAuxiliar = refEntrada;
+
+        for(int i = 0; i < this.size(); i++){
+            strRetorno += "{No [Conteudo =" + refEntrada + "]}-->";
+            noAuxiliar = noAuxiliar.getProximoNO();
+        }
+
+
+        
+        strRetorno += "null";
+        return strRetorno;
+    }
+
+
+    
     
 }
