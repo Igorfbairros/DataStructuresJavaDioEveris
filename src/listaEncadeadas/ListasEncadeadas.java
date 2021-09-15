@@ -24,6 +24,10 @@ public class ListasEncadeadas {
 
     }
 
+    public T get(int index){
+        return getNo(index).getConteudo();
+    }
+
     private No<T> getNo(int index){
         
         validaLista(index);
@@ -39,6 +43,21 @@ public class ListasEncadeadas {
         }
 
         return noRetorno;
+    }
+
+    public T remove(int index){
+        No<T> noPivor = this.getNo(index);
+        if(index == 0){
+            refEntrada = noPivor.getProximoNO();
+            return noPivor.getConteudo();
+
+        }
+
+        No<T> noAnterior = getNo(index - 1);
+        noAnterior.setProximoNO(noPivor.getProximoNO());
+        return noPivor.getConteudo();
+
+
     }
 
     public int size(){
