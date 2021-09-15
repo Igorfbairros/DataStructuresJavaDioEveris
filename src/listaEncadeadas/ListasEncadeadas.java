@@ -25,14 +25,9 @@ public class ListasEncadeadas {
     }
 
     private No<T> getNo(int index){
-        if(index >= this.size()){
-
-            throw IndexOutOfBoundsException("NO CONTENT AVAIABLE ON INDEX "+ index + "THIS LIST.");
-
-        }
-
-
-
+        
+        validaLista(index);
+    
         No<T> noAuxiliar = refEntrada;
         No<T> noRetorno = null;
 
@@ -65,10 +60,15 @@ public class ListasEncadeadas {
             }
         }
         return tamanhoLista;
+    }
 
+    private void validaLista(int index){
+        if(index >= this.size()){
+            int lastIndex = this.size() - 1 ;
 
+            throw IndexOutOfBoundsException("NO CONTENT AVAIABLE ON INDEX "+ index + "THIS LIST. This list just go "+ lastIndex+ ";");
 
-
+        }
     }
 
     public boolean isEmpty(){
